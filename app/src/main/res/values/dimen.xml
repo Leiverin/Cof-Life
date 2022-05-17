@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="border_dimen">16dp</dimen>
+    <dimen name="content_dimen">8dp</dimen>
+    <dimen name="bg_info_cart">86dp</dimen>
+</resources>

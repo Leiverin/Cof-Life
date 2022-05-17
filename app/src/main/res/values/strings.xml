@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CoffeeApp</string>
+    <string name="labelAccount">Account</string>
+    <string name="labelPassword">Password</string>
+    <string name="contentAccount">Enter your account</string>
+    <string name="contentPassword">Enter your password</string>
+    <string name="confirmPassword">Confirm your password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_category">Category</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_me">Me</string>
+</resources>

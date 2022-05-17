@@ -1,0 +1,72 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.CoffeeApp" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="coffee_cate_title">
+        <item name="android:textSize">19sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/font_item</item>
+    </style>
+
+    <style name="coffee_item_title">
+        <item name="android:textSize">30sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/dosis_medium</item>
+    </style>
+
+    <style name="coffee_item_description">
+        <item name="android:textSize">19sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/dosis_variablefont_wght</item>
+    </style>
+
+    <style name="coffee_item_status">
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/dosis_variablefont_wght</item>
+    </style>
+
+    <style name="coffee_item_price">
+        <item name="android:textSize">19sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/dosis_medium</item>
+    </style>
+
+    <style name="coffee_cate_description">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/dosis_medium</item>
+    </style>
+
+    <style name="coffee_cate_button">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/font_item</item>
+    </style>
+
+    <style name="coffee_cate">
+        <item name="android:textSize">35sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/font_title</item>
+    </style>
+</resources>
