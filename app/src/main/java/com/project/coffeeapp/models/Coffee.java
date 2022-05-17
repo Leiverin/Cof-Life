@@ -12,8 +12,9 @@ public class Coffee implements Parcelable {
     private int total;
     private double discount;
     private int outstanding;
+    private int idCategory;
 
-    public Coffee(int id, String name, String image, String description, double price, int total, double discount, int outstanding) {
+    public Coffee(int id, String name, String image, String description, double price, int total, double discount, int outstanding, int idCategory) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -22,6 +23,7 @@ public class Coffee implements Parcelable {
         this.total = total;
         this.discount = discount;
         this.outstanding = outstanding;
+        this.idCategory = idCategory;
     }
 
     protected Coffee(Parcel in) {
@@ -33,7 +35,7 @@ public class Coffee implements Parcelable {
         total = in.readInt();
         discount = in.readDouble();
         outstanding = in.readInt();
-
+        idCategory = in.readInt();
     }
 
     public static final Creator<Coffee> CREATOR = new Creator<Coffee>() {
@@ -112,6 +114,13 @@ public class Coffee implements Parcelable {
         this.outstanding = outstanding;
     }
 
+    public int getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
+    }
 
     @Override
     public int describeContents() {
@@ -128,5 +137,6 @@ public class Coffee implements Parcelable {
         parcel.writeInt(total);
         parcel.writeDouble(discount);
         parcel.writeInt(outstanding);
+        parcel.writeInt(idCategory);
     }
 }

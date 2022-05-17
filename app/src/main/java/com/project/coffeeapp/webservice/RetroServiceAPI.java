@@ -1,5 +1,6 @@
 package com.project.coffeeapp.webservice;
 
+import com.project.coffeeapp.models.Advertise;
 import com.project.coffeeapp.models.Cart;
 import com.project.coffeeapp.models.Category;
 import com.project.coffeeapp.models.Coffee;
@@ -63,4 +64,14 @@ public interface RetroServiceAPI {
             @Field("id") int id,
             @Field("username") String username
     );
+
+    // Get data coffee
+    // [GET] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/GetCoffee.php";
+    @GET("GetCoffee.php")
+    Call<List<Coffee>> getListCoffee();
+
+    // Get advertisement
+    // [GET] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/GetAdvertise.php";
+    @GET("GetAdvertise.php")
+    Call<List<Advertise>> getAdvertise();
 }
