@@ -1,9 +1,13 @@
 package com.project.coffeeapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -11,6 +15,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.project.coffeeapp.databinding.ActivityHomeBinding;
+import com.project.coffeeapp.views.FavouriteActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -35,4 +40,19 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.header_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.nav_favourite){
+            startActivity(new Intent(HomeActivity.this, FavouriteActivity.class));
+        }else if(item.getItemId() == R.id.nav_notification){
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

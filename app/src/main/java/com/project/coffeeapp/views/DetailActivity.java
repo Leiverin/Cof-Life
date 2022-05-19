@@ -1,22 +1,21 @@
 package com.project.coffeeapp.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
+import android.widget.CompoundButton;
 
 import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
-import com.project.coffeeapp.R;
 import com.project.coffeeapp.databinding.ActivityDetailBinding;
 import com.project.coffeeapp.models.Cart;
 import com.project.coffeeapp.models.Coffee;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_COFFEE = "EXTRA_COFFEE";
@@ -27,6 +26,8 @@ public class DetailActivity extends AppCompatActivity {
     private double totalPrice;
     private DetailViewModel detailViewModel;
     private int totalQuantity;
+    private int idProduct;
+    private List<Coffee> mListCoffee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class DetailActivity extends AppCompatActivity {
             binding.tvQuantity.setText(1+"");
             Glide.with(getApplicationContext()).load(coffee.getImage()).into(binding.imgCoffee);
             binding.tvStatus.setVisibility(View.GONE);
+            idProduct = coffee.getId();
         }
 
         // Set view from cart
@@ -61,9 +63,8 @@ public class DetailActivity extends AppCompatActivity {
             binding.tvQuantity.setText(cart.getQuantity()+"");
             Glide.with(getApplicationContext()).load(cart.getImage()).into(binding.imgCoffee);
             binding.tvStatus.setVisibility(View.GONE);
+            idProduct = cart.getIdProduct();
         }
-
-
 
         quantity = Integer.parseInt(binding.tvQuantity.getText().toString());
 
@@ -87,6 +88,46 @@ public class DetailActivity extends AppCompatActivity {
                 AddToCart(coffee, cart);
             }
         });
+
+        detailViewModel.getListFavourite().observe(this, new Observer<List<Coffee>>() {
+            @Override
+            public void onChanged(List<Coffee> coffees) {
+                mListCoffee = coffees;
+                for(Coffee c : mListCoffee){
+                    if(c.getId() == idProduct){
+                        binding.btnFav.setChecked(true);
+                        break;
+                    }
+                }
+            }
+        });
+
+        detailViewModel.callAPIListFavourite("leiverin");
+
+        binding.btnFav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                HandleFavButton(b, coffee, cart);
+            }
+        });
+    }
+
+    private void HandleFavButton(boolean b, Coffee coffee, Cart cart) {
+        if(b){
+            if(cart != null){
+                detailViewModel.handleAddFavourite(cart.getId(), "leiverin");
+            }
+            if(coffee != null){
+                detailViewModel.handleAddFavourite(coffee.getId(), "leiverin");
+            }
+        }else{
+            if(cart != null){
+                detailViewModel.handleRemoveFavourite(cart.getId(), "leiverin");
+            }
+            if(coffee != null){
+                detailViewModel.handleRemoveFavourite(coffee.getId(), "leiverin");
+            }
+        }
     }
 
     private void AddToCart(Coffee coffee, Cart cart) {

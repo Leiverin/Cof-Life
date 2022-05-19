@@ -75,4 +75,11 @@
         <item name="android:letterSpacing">0.04</item>
         <item name="android:fontFamily">@font/dosis_semibold</item>
     </style>
+
+    <style name="ShapeImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">36dp</item>
+        <item name="cornerSizeBottomRight">36dp</item>
+        <item name="backgroundColor">@color/white</item>
+    </style>
 </resources>

@@ -74,4 +74,44 @@ public interface RetroServiceAPI {
     // [GET] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/GetAdvertise.php";
     @GET("GetAdvertise.php")
     Call<List<Advertise>> getAdvertise();
+
+    // Handle favourite
+    // [POST] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/AddFavourite.php";
+    @FormUrlEncoded
+    @POST("AddFavourite.php")
+    Call<Coffee> handleAddFavourite(
+            @Field("idProduct") int id,
+            @Field("username") String username
+    );
+
+    // Handle favourite
+    // [POST] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/RemoveFavourite.php";
+    @FormUrlEncoded
+    @POST("RemoveFavourite.php")
+    Call<Coffee> handleRemoveFavourite(
+            @Field("idProduct") int id,
+            @Field("username") String username
+    );
+
+    // Get list favourite
+    // [POST] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/GetFavourite.php";
+    @FormUrlEncoded
+    @POST("GetFavourite.php")
+    Call<List<Coffee>> getListFavourite(
+            @Field("username") String username
+    );
+
+    // Get top favourite
+    // [GET] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/TopFavourite.php";
+    @GET("TopFavourite.php")
+    Call<List<Coffee>> getTopFavourite();
+
+    // Delete favourite
+    // [POST] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/DeleteFavourite.php";
+    @FormUrlEncoded
+    @POST("DeleteFavourite.php")
+    Call<List<Coffee>> deleteFavourite(
+            @Field("idProduct") int id,
+            @Field("username") String username
+    );
 }

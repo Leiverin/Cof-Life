@@ -12,9 +12,10 @@ public class Coffee implements Parcelable {
     private int total;
     private double discount;
     private int outstanding;
+    private int favourite;
     private int idCategory;
 
-    public Coffee(int id, String name, String image, String description, double price, int total, double discount, int outstanding, int idCategory) {
+    public Coffee(int id, String name, String image, String description, double price, int total, double discount, int outstanding, int favourite, int idCategory) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -23,6 +24,7 @@ public class Coffee implements Parcelable {
         this.total = total;
         this.discount = discount;
         this.outstanding = outstanding;
+        this.favourite = favourite;
         this.idCategory = idCategory;
     }
 
@@ -35,6 +37,7 @@ public class Coffee implements Parcelable {
         total = in.readInt();
         discount = in.readDouble();
         outstanding = in.readInt();
+        favourite = in.readInt();
         idCategory = in.readInt();
     }
 
@@ -114,6 +117,14 @@ public class Coffee implements Parcelable {
         this.outstanding = outstanding;
     }
 
+    public int getFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(int favourite) {
+        this.favourite = favourite;
+    }
+
     public int getIdCategory() {
         return idCategory;
     }
@@ -137,6 +148,7 @@ public class Coffee implements Parcelable {
         parcel.writeInt(total);
         parcel.writeDouble(discount);
         parcel.writeInt(outstanding);
+        parcel.writeInt(favourite);
         parcel.writeInt(idCategory);
     }
 }

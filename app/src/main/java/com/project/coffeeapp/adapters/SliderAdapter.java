@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.project.coffeeapp.R;
 import com.project.coffeeapp.models.Advertise;
 import com.smarteist.autoimageslider.SliderViewAdapter;
@@ -55,7 +56,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderViewHol
 
     public class SliderViewHolder extends SliderViewAdapter.ViewHolder {
 
-        private ImageView imgSlider;
+        private ShapeableImageView imgSlider;
 
         public SliderViewHolder(View itemView) {
             super(itemView);
@@ -63,7 +64,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderViewHol
         }
 
         private void initView(View view) {
-            imgSlider = (ImageView) view.findViewById(R.id.img_slider);
+            imgSlider = (ShapeableImageView) view.findViewById(R.id.img_slider);
         }
     }
 }
