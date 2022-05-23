@@ -1,24 +1,29 @@
 package com.project.coffeeapp.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
-    private String account;
+    private String username;
     private String password;
+    private String fullName;
 
     public User() {
     }
 
-    public User(String account, String password) {
-        this.account = account;
+    public User(String username, String password, String fullName) {
+        this.username = username;
         this.password = password;
+        this.fullName = fullName;
     }
 
 
-    public String getAccount() {
-        return account;
+
+    public String getUsername() {
+        return username;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -29,7 +34,15 @@ public class User {
         this.password = password;
     }
 
-//    public boolean isValidAccount(){
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    //    public boolean isValidAccount(){
 //        return !TextUtils.isEmpty(account) && (account.length() >= 6);
 //    }
 //

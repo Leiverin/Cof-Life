@@ -78,8 +78,30 @@
 
     <style name="ShapeImageView">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeBottomLeft">36dp</item>
-        <item name="cornerSizeBottomRight">36dp</item>
+        <item name="cornerSize">75dp</item>
         <item name="backgroundColor">@color/white</item>
+    </style>
+
+    <style name="SliderImageStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomRight">32dp</item>
+        <item name="cornerSizeBottomLeft">32dp</item>
+        <item name="backgroundColor">@color/white</item>
+    </style>
+
+    <style name="Theme.Custom" parent="@style/Theme.AppCompat">
+        <item name="windowActionBar">false</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="CustomActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="TextLabel">
+        <item name="android:textCursorDrawable">@color/black</item>
     </style>
 </resources>

@@ -86,18 +86,33 @@ public class SignUpPresenter {
         edConfirm.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                tilConfirm.setError(null);
+                if(b){
+                    tilConfirm.setError(null);
+                }
             }
         });
     }
 
-    public void signUp(User user, String pConfirm){
-        if(user.getAccount().trim().isEmpty() || user.getAccount().length() <= 6){
+    public void validateFullName(EditText edFullName, TextInputLayout tilFullName){
+        edFullName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b){
+                    signUpInterface.validFullName();
+                }
+            }
+        });
+    }
+
+    public void signUp(User user, String pConfirm, String fullName){
+        if(user.getUsername().trim().isEmpty() || user.getUsername().length() <= 6){
             signUpInterface.accountInvalid();
-        }else if(user.getPassword().trim().isEmpty() || user.getAccount().length() <= 6){
+        }else if(user.getPassword().trim().isEmpty() || user.getUsername().length() <= 6){
             signUpInterface.passwordInvalid();
         }else if(!pConfirm.equals(user.getPassword())){
             signUpInterface.confirmError();
+        }else if(fullName.equals("")){
+            signUpInterface.fullNameInvalid();
         }else{
             signUpInterface.signUpSuccess(user);
         }

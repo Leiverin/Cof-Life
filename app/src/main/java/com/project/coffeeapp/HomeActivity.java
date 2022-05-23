@@ -1,7 +1,9 @@
 package com.project.coffeeapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,7 +16,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.gson.Gson;
 import com.project.coffeeapp.databinding.ActivityHomeBinding;
+import com.project.coffeeapp.utils.CommonUtil;
 import com.project.coffeeapp.views.FavouriteActivity;
 
 public class HomeActivity extends AppCompatActivity {

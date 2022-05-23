@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStore;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,44 +22,43 @@ import com.project.coffeeapp.models.User;
 import com.project.coffeeapp.utils.CommonUtil;
 
 public class SignIn extends AppCompatActivity {
+    private SignInViewModel signInViewModel;
     private ActivitySignInBinding binding;
-    private FirebaseDatabase fd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        signInViewModel = new ViewModelProvider(this).get(SignInViewModel.class);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        fd = FirebaseDatabase.getInstance();
-        DatabaseReference ref = fd.getReference("Users");
 
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String account = binding.edAccount.getText().toString().trim();
                 String password = binding.edPassword.getText().toString().trim();
-                ref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        if(snapshot.child(account).exists()){
-                            User user = snapshot.child(account).getValue(User.class);
-                            if(user.getPassword().equals(password)){
-                                startActivity(new Intent(SignIn.this, HomeActivity.class));
-                                CommonUtil.sCurrentUser = user;
-                                finish();
-                            }else{
-                                Toast.makeText(SignIn.this, "Password is not correct", Toast.LENGTH_SHORT).show();
-                            }
-                        }else{
-                            Toast.makeText(SignIn.this, "User not exist in database", Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                signInViewModel.callAPIUser(account, password);
+            }
+        });
 
-                    @Override
-                    public void onCancelled(DatabaseError error) {
+        binding.tvSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignIn.this, SignUp.class);
+                startActivity(intent);
+            }
+        });
 
-                    }
-                });
+        signInViewModel.getUser().observe(this, new Observer<User>() {
+            @Override
+            public void onChanged(User user) {
+                if(user != null){
+                    Intent intent = new Intent(SignIn.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                    CommonUtil.sCurrentUser = user;
+                }else{
+                    Toast.makeText(SignIn.this, "Account or password incorrect", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

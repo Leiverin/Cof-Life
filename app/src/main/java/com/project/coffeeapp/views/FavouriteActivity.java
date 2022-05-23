@@ -14,6 +14,7 @@ import com.project.coffeeapp.databinding.ActivityFavouriteBinding;
 import com.project.coffeeapp.interfaces.IOnClickDeleteItem;
 import com.project.coffeeapp.interfaces.IOnClickViewItem;
 import com.project.coffeeapp.models.Coffee;
+import com.project.coffeeapp.utils.CommonUtil;
 
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class FavouriteActivity extends AppCompatActivity {
         }, new IOnClickDeleteItem() {
             @Override
             public void onDelete(Coffee coffee) {
-                favouriteViewModel.callAPIDeleteFavourite(coffee.getId(), "leiverin");
+                favouriteViewModel.callAPIDeleteFavourite(coffee.getId(), CommonUtil.sCurrentUser.getUsername());
             }
         });
         rvFavourite.setAdapter(adapter);
@@ -61,6 +62,6 @@ public class FavouriteActivity extends AppCompatActivity {
             }
         });
 
-        favouriteViewModel.callAPIGetListFavourite("leiverin");
+        favouriteViewModel.callAPIGetListFavourite(CommonUtil.sCurrentUser.getUsername());
     }
 }

@@ -9,22 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeeApp">
-        <activity android:name=".views.FavouriteActivity"></activity>
+        <activity android:name=".views.ChangePasswordActivity"></activity>
+        <activity android:name=".views.AccountActivity" />
+        <activity android:name=".views.FavouriteActivity" />
         <activity android:name=".views.DetailActivity" />
         <activity android:name=".views.SelectedCategoryActivity" />
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:label="@string/title_activity_home">
+            android:label="@string/title_activity_home"/>
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            >
+
+        </activity>
+        <activity android:name=".forms.SignUp"/>
+        <activity android:name=".forms.SignIn"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".forms.SignUp" />
-        <activity android:name=".forms.SignIn" />
     </application>
 
 </manifest>

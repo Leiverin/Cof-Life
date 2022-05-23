@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.project.coffeeapp.HomeActivity;
 import com.project.coffeeapp.adapters.CategoryAdapter;
 import com.project.coffeeapp.databinding.FragmentCategoryBinding;
 import com.project.coffeeapp.interfaces.IOnClickViewCategory;
@@ -42,6 +43,8 @@ public class CategoryFragment extends Fragment {
         rvCategory = binding.rvCategory;
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         rvCategory.setLayoutManager(gridLayoutManager);
+
+        ((HomeActivity) getActivity()).getSupportActionBar().hide();
         adapter = new CategoryAdapter(getContext(), mListCategory, new IOnClickViewCategory() {
             @Override
             public void OnClick(Category category) {

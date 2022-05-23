@@ -10,7 +10,7 @@
     android:padding="@dimen/border_dimen"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".form.SignUp">
+    tools:context=".forms.SignUp">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -51,6 +51,9 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     app:startIconDrawable="@drawable/ic_baseline_person_24"
                     app:endIconMode="clear_text"
+                    android:theme="@style/TextLabel"
+                    app:boxStrokeColor="@color/stroke_color"
+                    app:hintTextColor="@color/stroke_color"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ed_Account"
@@ -72,6 +75,9 @@
                     app:startIconDrawable="@drawable/ic_baseline_password_24"
                     android:layout_marginTop="@dimen/content_dimen"
                     app:endIconMode="password_toggle"
+                    android:theme="@style/TextLabel"
+                    app:boxStrokeColor="@color/stroke_color"
+                    app:hintTextColor="@color/stroke_color"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ed_password"
@@ -82,6 +88,7 @@
                         >
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <!--    Confirm Password    -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_confirm"
@@ -92,12 +99,39 @@
                     app:startIconDrawable="@drawable/ic_baseline_password_24"
                     android:layout_marginTop="@dimen/content_dimen"
                     app:endIconMode="password_toggle"
+                    android:theme="@style/TextLabel"
+                    app:boxStrokeColor="@color/stroke_color"
+                    app:hintTextColor="@color/stroke_color"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ed_confirm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
+                        android:textColor="@color/white"
+                        >
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--    Full name-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your full name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:startIconDrawable="@drawable/ic_baseline_person_24"
+                    android:layout_marginTop="@dimen/content_dimen"
+                    app:endIconMode="clear_text"
+                    android:theme="@style/TextLabel"
+                    app:boxStrokeColor="@color/stroke_color"
+                    app:hintTextColor="@color/stroke_color"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
                         android:textColor="@color/white"
                         >
                     </com.google.android.material.textfield.TextInputEditText>
@@ -113,6 +147,7 @@
                     android:text="@string/sign_up"
                     android:textColor="@color/white"
                     android:background="@drawable/btn_decoration"
+                    android:textAllCaps="false"
                     />
 
             </LinearLayout>

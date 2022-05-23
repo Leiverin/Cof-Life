@@ -1,22 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.category.CategoryFragment">
-
-    <TextView
-        android:id="@+id/text_me"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:id="@+id/img_bg"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/bg"
+            android:scaleType="centerCrop"
+            />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg"
+            android:theme="@style/ShapeImageView"
+            android:layout_marginTop="-75dp"
+            />
+        <TextView
+            android:id="@+id/tv_name_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NAME"
+            android:gravity="center_horizontal"
+            style="@style/coffee_item_title"
+            />
+        <TextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="0999999999"
+            style="@style/coffee_item_description"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/border_dimen"
+            android:layout_marginTop="@dimen/border_dimen"
+            android:layout_marginHorizontal="24dp"
+            >
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:orientation="vertical"
+                android:padding="@dimen/border_dimen"
+                >
+                <LinearLayout
+                    android:id="@+id/view_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_account_box_24"
+                        android:scaleType="fitXY"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Account information"
+                        style="@style/coffee_cate_title"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="@dimen/border_dimen"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/view_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/border_dimen"
+                    >
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_shopping_cart_24"
+                        android:scaleType="fitXY"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="My Order"
+                        style="@style/coffee_cate_title"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="@dimen/border_dimen"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/view_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_payment_24"
+                        android:scaleType="fitXY"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Method"
+                        style="@style/coffee_cate_title"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="@dimen/border_dimen"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/view_delivery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/border_dimen"
+                    >
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_add_location_24"
+                        android:scaleType="fitXY"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Delivery Address"
+                        style="@style/coffee_cate_title"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="@dimen/border_dimen"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/view_change_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_password_24"
+                        android:scaleType="fitXY"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Change password"
+                        style="@style/coffee_cate_title"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="@dimen/border_dimen"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

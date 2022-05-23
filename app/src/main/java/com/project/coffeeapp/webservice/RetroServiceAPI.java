@@ -4,6 +4,7 @@ import com.project.coffeeapp.models.Advertise;
 import com.project.coffeeapp.models.Cart;
 import com.project.coffeeapp.models.Category;
 import com.project.coffeeapp.models.Coffee;
+import com.project.coffeeapp.models.User;
 
 import java.util.List;
 
@@ -113,5 +114,24 @@ public interface RetroServiceAPI {
     Call<List<Coffee>> deleteFavourite(
             @Field("idProduct") int id,
             @Field("username") String username
+    );
+
+    // Get user current
+    // [POST] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/GetUser.php";
+    @FormUrlEncoded
+    @POST("GetUser.php")
+    Call<User> getUserCurrent(
+            @Field("account") String account,
+            @Field("password") String password
+    );
+
+    // Create account user
+    // [POST] Link API: "https://coflife.000webhostapp.com/CoffeeAPI/CreateUser.php"
+    @FormUrlEncoded
+    @POST("CreateUser.php")
+    Call<User> createUser(
+            @Field("username") String username,
+            @Field("password") String password,
+            @Field("fullName") String fullName
     );
 }

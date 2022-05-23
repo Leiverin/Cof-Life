@@ -18,16 +18,18 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.project.coffeeapp.HomeActivity;
 import com.project.coffeeapp.adapters.CartAdapter;
 import com.project.coffeeapp.databinding.FragmentCartBinding;
 import com.project.coffeeapp.interfaces.IOnClickItemCart;
 import com.project.coffeeapp.models.Cart;
 import com.project.coffeeapp.models.Coffee;
+import com.project.coffeeapp.utils.CommonUtil;
 import com.project.coffeeapp.views.DetailActivity;
 
 import java.util.List;
 
-public class CartFragment extends Fragment implements IOnClickItemCart {
+public class  CartFragment extends Fragment implements IOnClickItemCart {
 
     private CartViewModel cartViewModel;
     private FragmentCartBinding binding;
@@ -46,6 +48,8 @@ public class CartFragment extends Fragment implements IOnClickItemCart {
         View root = binding.getRoot();
         rvCart = binding.rvCart;
 
+        ((HomeActivity) getActivity()).getSupportActionBar().hide();
+
         // Set RecycleView Cart
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         rvCart.setLayoutManager(linearLayoutManager);
@@ -63,7 +67,7 @@ public class CartFragment extends Fragment implements IOnClickItemCart {
             }
         });
 
-        cartViewModel.getCartAPI("leiverin");
+        cartViewModel.getCartAPI(CommonUtil.sCurrentUser.getUsername());
 
         return root;
     }
@@ -83,7 +87,7 @@ public class CartFragment extends Fragment implements IOnClickItemCart {
 
     @Override
     public void OnClickDelete(Cart cart) {
-        cartViewModel.deleteItemCart(cart.getId(), "leiverin");
+        cartViewModel.deleteItemCart(cart.getId(), CommonUtil.sCurrentUser.getUsername());
     }
 
     @Override
@@ -127,7 +131,7 @@ public class CartFragment extends Fragment implements IOnClickItemCart {
     public void onResume() {
 
         if(mListItemCart != null){
-            cartViewModel.getCartAPI("leiverin");
+            cartViewModel.getCartAPI(CommonUtil.sCurrentUser.getUsername());
         }
         super.onResume();
     }

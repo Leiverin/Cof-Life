@@ -52,6 +52,10 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     app:startIconDrawable="@drawable/ic_baseline_person_24"
                     android:textColorHint="@color/black"
+                    android:theme="@style/TextLabel"
+                    app:boxStrokeColor="@color/stroke_color"
+                    app:hintTextColor="@color/stroke_color"
+                    app:endIconMode="clear_text"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ed_Account"
@@ -74,6 +78,9 @@
                     android:layout_marginTop="@dimen/content_dimen"
                     app:endIconMode="password_toggle"
                     android:textColorHint="@color/black"
+                    android:theme="@style/TextLabel"
+                    app:boxStrokeColor="@color/stroke_color"
+                    app:hintTextColor="@color/stroke_color"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ed_password"
@@ -85,13 +92,22 @@
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <TextView
+                    android:id="@+id/tv_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:layout_gravity="end"
+                    android:textSize="20sp"
+                    android:layout_marginVertical="@dimen/content_dimen"
+                    />
                 <!--    Button Login-->
                 <Button
                     android:id="@+id/btn_Login"
                     android:layout_width="156dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/border_dimen"
+                    android:textAllCaps="false"
                     android:text="@string/sign_in"
                     android:textColor="@color/white"
                     android:background="@drawable/btn_decoration"

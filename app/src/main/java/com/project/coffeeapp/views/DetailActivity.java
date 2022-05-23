@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.project.coffeeapp.databinding.ActivityDetailBinding;
 import com.project.coffeeapp.models.Cart;
 import com.project.coffeeapp.models.Coffee;
+import com.project.coffeeapp.utils.CommonUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -102,7 +103,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-        detailViewModel.callAPIListFavourite("leiverin");
+        detailViewModel.callAPIListFavourite(CommonUtil.sCurrentUser.getUsername());
 
         binding.btnFav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -115,17 +116,17 @@ public class DetailActivity extends AppCompatActivity {
     private void HandleFavButton(boolean b, Coffee coffee, Cart cart) {
         if(b){
             if(cart != null){
-                detailViewModel.handleAddFavourite(cart.getId(), "leiverin");
+                detailViewModel.handleAddFavourite(cart.getId(), CommonUtil.sCurrentUser.getUsername());
             }
             if(coffee != null){
-                detailViewModel.handleAddFavourite(coffee.getId(), "leiverin");
+                detailViewModel.handleAddFavourite(coffee.getId(), CommonUtil.sCurrentUser.getUsername());
             }
         }else{
             if(cart != null){
-                detailViewModel.handleRemoveFavourite(cart.getId(), "leiverin");
+                detailViewModel.handleRemoveFavourite(cart.getId(), CommonUtil.sCurrentUser.getUsername());
             }
             if(coffee != null){
-                detailViewModel.handleRemoveFavourite(coffee.getId(), "leiverin");
+                detailViewModel.handleRemoveFavourite(coffee.getId(), CommonUtil.sCurrentUser.getUsername());
             }
         }
     }
@@ -136,7 +137,7 @@ public class DetailActivity extends AppCompatActivity {
         if(coffee != null){
             detailViewModel.postDataAPI(
                 DetailActivity.this,
-                new Cart(quantity, date, "leiverin", coffee.getId())
+                new Cart(quantity, date, CommonUtil.sCurrentUser.getUsername(), coffee.getId())
             );
 
         }
